@@ -25,12 +25,29 @@
  - 직접 수집한 데이터는 Labelimg를 사용해 직접 라벨링
 
 ## 데이터 전처리
- - Yolo모델에서 학습이 가능하도록 라벨을 Yolo모델에 맞게 변형, (class, 
+ - Yolo모델에서 학습이 가능하도록 라벨을 Yolo모델에 맞게 변형(class, x_center, y_center, width, height)
+ - KITTI데이터에서 거리가 추가된 Yolo모델 라벨 형태로 변형(class, x_center, y_center, width, height, distance)
   
 ## 모델 학습
- - 
-## 결과
+ - 모델 구조를 변경하여 거리추정이 가능하도록 함
+ - 앙상블 모델을 사용
+![image](https://github.com/DaKu00/Yolov7_with_JetsonNano/assets/87750521/b94ae64e-151b-42a7-b18e-39c6ae16358f)
 
+## 모델 테스트
+ - 기존의 Yolo데이터와 거리데이터를 통해 학습 시켜서 바운딩 박스, 클래스 정보, 신뢰도와 거리가 반환되도록함
+ - 기존 모델에서 출력값을 하나 추가하는 방식
+![image](https://github.com/DaKu00/Yolov7_with_JetsonNano/assets/87750521/ee5b7809-c812-47b9-9211-3c3455d47141)
+ - 기존의 Yolo데이터와 거리데이터를 통해 학습 시켜서 바운딩 박스, 클래스 정보, 거리가 반환되도록함
+ - 기존 모델에서 해드 부분을 분할하여 하나의 해드는 기존 해드로서 바운딩박스와 클래스 정보, 신뢰도를 반환 하도록함
+ - 다른 해드 부분에서는 리니어한 해드 형태로 구성하여 거리값을 도출할 수 있도록 설계함
+![image](https://github.com/DaKu00/Yolov7_with_JetsonNano/assets/87750521/32a50f36-bd9b-4701-a094-e6e7707b3331)
+ - 이 두가지 방식에서 거리에 대한 로스가 제대로 줄지 않아서 앙상블 모델로 접근
+
+## 하드웨어 임베딩
+ - 
+
+## 결과
+ - 
 
 ## 특이점
  - 

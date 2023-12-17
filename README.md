@@ -31,6 +31,7 @@
 ## 모델 학습
  - 모델 구조를 변경하여 거리추정이 가능하도록 함
  - 앙상블 모델을 사용
+
 ![image](https://github.com/DaKu00/Yolov7_with_JetsonNano/assets/87750521/b94ae64e-151b-42a7-b18e-39c6ae16358f)
 
 ## 모델 테스트
